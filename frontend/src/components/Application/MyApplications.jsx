@@ -18,7 +18,7 @@ const MyApplications = () => {
     try {
       if (user && user.role === "Employer") {
         axios
-          .get("https://jobseeking-9a9z.onrender.com/api/v1/application/employer/getall", {
+          .get("${BACKEND_URL}/api/v1/application/employer/getall", {
             withCredentials: true,
           })
           .then((res) => {
@@ -26,7 +26,7 @@ const MyApplications = () => {
           });
       } else {
         axios
-          .get("https://jobseeking-9a9z.onrender.com/api/v1/application/jobseeker/getall", {
+          .get("${BACKEND_URL}/api/v1/application/jobseeker/getall", {
             withCredentials: true,
           })
           .then((res) => {
@@ -45,7 +45,7 @@ const MyApplications = () => {
   const deleteApplication = (id) => {
     try {
       axios
-        .delete(`https://jobseeking-9a9z.onrender.com/api/v1/application/delete/${id}`, {
+        .delete(`${BACKEND_URL}/api/v1/application/delete/${id}`, {
           withCredentials: true,
         })
         .then((res) => {
